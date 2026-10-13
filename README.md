@@ -8,7 +8,7 @@ I build connected devices and the systems behind them: ESP32 firmware that keeps
 Most of my production work is client firmware in private repositories. The public projects below show how I work.
 
 **Available for contract work and full-time roles** in embedded, IoT, and industrial data.<br>
-[Email](mailto:johnragonhall@gmail.com) &nbsp;·&nbsp; United States
+[Email](mailto:johnragonhall@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/johnragonhall) &nbsp;·&nbsp; United States
 
 ## Selected work
 
