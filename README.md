@@ -8,37 +8,52 @@ I build connected devices and the systems behind them: ESP32 firmware that keeps
 Most of my production work is client firmware in private repositories. The public projects below show how I work.
 
 **Available for contract work and full-time roles** in embedded, IoT, and industrial data.<br>
-[Portfolio and case studies](https://johnragonhall.github.io) &nbsp;·&nbsp; [Email](mailto:johnragonhall@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/johnragonhall) &nbsp;·&nbsp; United States
+[Portfolio and case studies](https://ragonxdragon.github.io) &nbsp;·&nbsp; [Email](mailto:johnragonhall@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/johnragonhall) &nbsp;·&nbsp; United States
 
 ## Selected work
 
-### [twinflow](https://github.com/johnragonhall/twinflow)
+### [twinflow](https://github.com/ragonxdragon/twinflow)
 
 A digital twin of a warehouse operation. A discrete-event model of receiving and putaway drives a simulated device fleet over MQTT, a Lean Six Sigma engine judges both the live telemetry and the model's own predictions, and an AI agent answers what-if questions with a statistical verdict instead of a paragraph. The deployment follows the Purdue model: the broker bridge is the only path between the OT and IT segments.
 
-`Python` `MQTT` `Sparkplug B` `ISA-95` `SPC` &nbsp;·&nbsp; [Docs](https://johnragonhall.github.io/twinflow/) &nbsp;·&nbsp; v0.1.0, phase 1 in progress
+`Python` `MQTT` `Sparkplug B` `ISA-95` `SPC` &nbsp;·&nbsp; [Docs](https://ragonxdragon.github.io/twinflow/) &nbsp;·&nbsp; v0.1.0, phase 1 in progress
 
-### [spbconform](https://github.com/johnragonhall/spbconform)
+### [sparkplug-pipeline](https://github.com/ragonxdragon/sparkplug-pipeline)
+
+Industrial telemetry from a Sparkplug B edge node, over MQTT, into TimescaleDB, with a dashboard, all from one `docker compose up`. The simulator misbehaves on purpose (reordering, duplicates, invalid messages, sequence wrap, a link outage with late replay, a schema change), and an integration test checks that every case lands where it should. Ingest measured at a median of about 4,200 messages per second on a laptop.
+
+`Python` `MQTT` `Sparkplug B` `TimescaleDB` `Docker`
+
+### [spbconform](https://github.com/ragonxdragon/spbconform)
 
 The full Eclipse Sparkplug B v3.0.0 assertion table with a runner that checks an edge node against it. It carries all 299 testable assertions, executable checks for the 143 an in-process harness can observe, and a recorded reason for each one it cannot. Written clean-room, with zero dependencies, under MIT.
 
 `Python` `Sparkplug B` `MQTT` `conformance testing`
 
-### [secom-spc](https://github.com/johnragonhall/secom-spc)
+### [secom-spc](https://github.com/ragonxdragon/secom-spc)
 
 Statistical process control on the UCI SECOM semiconductor dataset: I-MR charts with Nelson rules, EWMA and CUSUM, an autocorrelation check that decides whether a chart can be trusted, and a fail-prediction study on a time-ordered split that reports honestly when the data does not support a model.
 
 `Python` `SPC` `scikit-learn` `Jupyter`
 
-### Code samples
+## Engineering tools
 
-[Recovery ladder](https://gist.github.com/johnragonhall/40e022699158dc6cc4e20941b1def484) (C++17, boot-loop detection, no heap) &nbsp;·&nbsp; [Cellular backoff](https://gist.github.com/johnragonhall/dc041808503e7cbfaa6d99bd95b8b2a3) (C++17, full jitter and circuit breaker) &nbsp;·&nbsp; [Nelson rules checker](https://gist.github.com/johnragonhall/897b5ff8f95737c4feb72646c48edca1) (Python, stdlib only)
+| Repo | What it does |
+| --- | --- |
+| [performance-ladder-review](https://github.com/ragonxdragon/performance-ladder-review) | A measure-first performance skill for AI coding agents: delete before you tune, no claim without a number, and a `PERF:` marker on every decision. Results from three of my projects are charted in the README. |
+| [git-quality-gates](https://github.com/ragonxdragon/git-quality-gates) | Git hooks and CI gates for conventional commits, a regression-test rule on fixes, comment and prose standards, and a copyleft license allowlist, with every bypass logged. |
+| [claude-code-setup](https://github.com/ragonxdragon/claude-code-setup) | A template for a Claude Code configuration: layered context, generated routing, guard and nudge hooks with a self-test, and validators in CI. |
+| [rfid-reader-emulator](https://github.com/ragonxdragon/rfid-reader-emulator) | An HTTP/XML RFID reader emulator with seeded tag populations and fault injection, for bench-testing firmware without hardware. |
 
-### Case studies
+## Code samples
 
-Three write-ups from client work, with names removed: [diagnosing a field upload failure](https://johnragonhall.github.io/case-studies/field-diagnostics.html), [a camera model that lifted order accuracy from 72.0% to 94.1%](https://johnragonhall.github.io/case-studies/vision-pick-audit.html), and [shipping firmware fixes to a fleet with no rollback](https://johnragonhall.github.io/case-studies/release-structure.html).
+[Recovery ladder](https://gist.github.com/ragonxdragon/40e022699158dc6cc4e20941b1def484) (C++17, boot-loop detection, no heap) &nbsp;·&nbsp; [Cellular backoff](https://gist.github.com/ragonxdragon/dc041808503e7cbfaa6d99bd95b8b2a3) (C++17, full jitter and circuit breaker) &nbsp;·&nbsp; [Nelson rules checker](https://gist.github.com/ragonxdragon/897b5ff8f95737c4feb72646c48edca1) (Python, stdlib only)
 
-### Production firmware (private, client work)
+## Case studies
+
+Three write-ups from client work, with names removed: [diagnosing a field upload failure](https://ragonxdragon.github.io/case-studies/field-diagnostics.html), [a camera model that lifted order accuracy from 72.0% to 94.1%](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html), and [shipping firmware fixes to a fleet with no rollback](https://ragonxdragon.github.io/case-studies/release-structure.html).
+
+## Production firmware (private, client work)
 
 - **Cellular RFID gateway.** ESP32 firmware on an LTE modem that reads an RFID reader over Ethernet and uploads through mbedTLS to a REST API, managed through Azure IoT Hub device twins. It ships with OTA updates, on-device self-tests, a recovery ladder for unattended sites, native unit tests, libFuzzer harnesses, and GitHub Actions workflows for provisioning, deploys, and twin changes.
 - **IoT Network Check.** A site network preflight and on-device connectivity self-test: a Windows and Linux CLI plus an ESP32 library, in C++.
