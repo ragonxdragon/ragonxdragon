@@ -165,14 +165,14 @@ def banner(t: dict) -> str:
             W,
             H,
             "Jack Hall",
-            "Embedded systems, industrial data, and process improvement. Firmware that stays "
+            "Embedded systems, industrial data, applied AI, and process improvement. Firmware that stays "
             "connected, and the systems that read it. Open to contract and full-time roles. A signal "
             "trace runs inside a control band; one reading crosses the upper limit and is flagged.",
             "".join(css),
         )
         + frame(t, W, H)
         + f"""
-  <text x="{left}" y="56" class="mono" font-size="14" letter-spacing="2" fill="{t["accent"]}">EMBEDDED SYSTEMS  /  INDUSTRIAL DATA  /  PROCESS IMPROVEMENT</text>
+  <text x="{left}" y="56" class="mono" font-size="14" letter-spacing="1.5" fill="{t["accent"]}">EMBEDDED  /  INDUSTRIAL DATA  /  APPLIED AI  /  PROCESS IMPROVEMENT</text>
   <text x="{left - 3}" y="128" class="sans" font-size="64" font-weight="700" letter-spacing="-1" fill="{t["ink"]}">Jack Hall</text>
   <text class="sans" font-size="26" fill="{t["muted"]}">
     <tspan x="{left}" y="174">Firmware that stays connected,</tspan>

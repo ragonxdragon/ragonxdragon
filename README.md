@@ -1,11 +1,11 @@
 <p>
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img alt="Jack Hall. Embedded systems, industrial data, and process improvement. Firmware that stays connected, and the systems that read it. Open to contract and full-time roles." src="assets/banner-light.svg" width="100%">
+  <img alt="Jack Hall. Embedded systems, industrial data, applied AI, and process improvement. Firmware that stays connected, and the systems that read it. Open to contract and full-time roles." src="assets/banner-light.svg" width="100%">
 </picture>
 </p>
 
-I build connected devices and the systems behind them. On the device side, that means ESP32 firmware that keeps reporting over cellular from rooms nobody visits. Behind the device, I build the pipelines that carry industrial data and the models and statistics that show whether a process change worked.
+I build connected devices and the systems behind them. On the device side, that means ESP32 firmware that keeps reporting over cellular from rooms nobody visits. Behind the device, I build the pipelines that carry industrial data and the models and statistics that show whether a process change worked. I also design and run AI systems: I pick use cases worth building, prove them against a measured baseline, and put agents to work with evaluation and guardrails in place from the start.
 
 **I'm available for contract work and full-time roles.** Email [johnragonhall@gmail.com](mailto:johnragonhall@gmail.com) with what you are building and when you need it.
 
@@ -13,12 +13,15 @@ I build connected devices and the systems behind them. On the device side, that 
 
 ## What I can help with
 
+**AI use cases that never leave the demo.** I start from a business question and a measured baseline, then build the model or agent and prove it against that baseline. On a client computer vision project, the baseline audit put hand picking at 72.0% of orders fully correct, and [camera auditing raised it to 94.1%](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html). The scoping questionnaire, claim check, PRD, and pilot plan I use to choose and scope a use case are in [engineering-templates](https://github.com/ragonxdragon/engineering-templates).
+
+**AI systems a team can trust.** I design agents with evaluation defined before a model is chosen. In [twinflow](https://github.com/ragonxdragon/twinflow), the agent has to back each answer with a statistical verdict, scored on grounding and calibrated abstention. I run AI coding agents the same way: [claude-code-setup](https://github.com/ragonxdragon/claude-code-setup) is my configuration with guard hooks, a self-test, and validators in CI, and [performance-ladder-review](https://github.com/ragonxdragon/performance-ladder-review) makes an agent prove every optimization with a number. I am also building a desktop application for managing local and cloud AI models, kept private while in development.
+
 **Devices that drop offline in the field.** I write firmware that reports its own health and recovers without a site visit: on-device self-tests, a recovery ladder, OTA updates, and cellular backoff with jitter and a circuit breaker. Read the [recovery ladder](https://gist.github.com/ragonxdragon/40e022699158dc6cc4e20941b1def484) and [backoff](https://gist.github.com/ragonxdragon/dc041808503e7cbfaa6d99bd95b8b2a3) samples, or [how I worked out whether a field upload failure was a gateway stall or a firmware bug](https://ragonxdragon.github.io/case-studies/field-diagnostics.html).
 
 **Telemetry nobody trusts.** Plant data shows up late, out of order, duplicated, or corrupt. [sparkplug-pipeline](https://github.com/ragonxdragon/sparkplug-pipeline) sends all of that on purpose, and an integration test checks where each message lands. [spbconform](https://github.com/ragonxdragon/spbconform) holds an edge node to the Sparkplug B specification.
 
-**Models that fall apart on real process data.** I validate a model the way it will be used: a time-ordered split, class imbalance handled, PR-AUC with bootstrap confidence intervals, and a label-shuffle test. In [secom-spc](https://github.com/ragonxdragon/secom-spc), those checks showed a fail predictor that does not clearly beat chance, and the write-up says so. On a client camera project, five model versions trained on 6,761 images [raised order accuracy from a 72.0% hand-picking baseline to 94.1%](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html).
-
+**Models that fall apart on real process data.** I validate a model the way it will be used: a time-ordered split, class imbalance handled, PR-AUC with bootstrap confidence intervals, and a label-shuffle test. In [secom-spc](https://github.com/ragonxdragon/secom-spc), those checks showed a fail predictor that does not clearly beat chance, and the write-up says so.
 **Process changes argued instead of tested.** I settle the argument with SPC, hypothesis tests, designed experiments, and Lean Six Sigma, and I check first whether a control chart can be trusted at all. [twinflow](https://github.com/ragonxdragon/twinflow) is the larger version of that idea: test a change on a simulated warehouse before anyone moves a shelf.
 
 **Firmware fixes for a fleet with no rollback.** A bad update can cost a site visit, so I plan releases around that. Read [how I shipped fixes to a fleet with no rollback](https://ragonxdragon.github.io/case-studies/release-structure.html), and see the gates I run on every merge in [git-quality-gates](https://github.com/ragonxdragon/git-quality-gates).
@@ -84,16 +87,18 @@ Code samples: [recovery ladder](https://gist.github.com/ragonxdragon/40e02269915
 
 I write the test first, and every bug fix ships with a regression test. A number in my docs comes from a recorded run; until I measure something, it says TBD. My deliverables use permissive licenses and clean-room code, with no copyleft. And because nobody watches the devices I ship, the firmware reports its own health and recovers on its own.
 
-## Toolbox
+## Skills, with proof
 
-| Area | Tools and evidence |
-| --- | --- |
-| Embedded | C, C++, ESP32, PlatformIO, FreeRTOS, mbedTLS, LTE modems |
-| IoT and industrial data | Azure IoT Hub, MQTT, Sparkplug B, ISA-95, REST, time-series data in TimescaleDB ([sparkplug-pipeline](https://github.com/ragonxdragon/sparkplug-pipeline)) |
-| Data science | Python and R; pandas, NumPy, SciPy, statsmodels, scikit-learn, Jupyter, matplotlib ([secom-spc](https://github.com/ragonxdragon/secom-spc)) |
-| Machine learning | Supervised classification with time-ordered splits, class imbalance handling, PR-AUC, bootstrap confidence intervals, and label-shuffle tests ([secom-spc](https://github.com/ragonxdragon/secom-spc)); computer vision training and evaluation for object counting ([case study](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html)) |
-| LLM agents | Agent tooling and evaluation design, including grounding and abstention metrics ([twinflow](https://github.com/ragonxdragon/twinflow), [claude-code-setup](https://github.com/ragonxdragon/claude-code-setup), [performance-ladder-review](https://github.com/ragonxdragon/performance-ladder-review)) |
-| Statistics and process | Statistical process control, hypothesis testing, DOE, Lean Six Sigma ([secom-spc](https://github.com/ragonxdragon/secom-spc), [twinflow](https://github.com/ragonxdragon/twinflow)) |
-| Quality | Unit tests, libFuzzer, CI gates on GitHub Actions |
-| Mobile and connected devices | React Native and TypeScript, Bluetooth LE GATT with HMAC-SHA256 challenge pairing, React kiosk UI, embedded Linux with systemd and HDMI-CEC, Flask APIs ([case study](https://ragonxdragon.github.io/case-studies/radar-companion.html)) |
-| Other languages | TypeScript, PowerShell |
+| Area | What I do | Proof |
+| --- | --- | --- |
+| AI systems and strategy | Choose AI use cases against a measured baseline, scope pilots, define evaluation before choosing a model, design agents that ground their answers and abstain when unsure, and run AI coding agents behind guardrails | Camera pilot took order accuracy from 72.0% to 94.1% ([case study](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html)); agent evaluation design in [twinflow](https://github.com/ragonxdragon/twinflow); [claude-code-setup](https://github.com/ragonxdragon/claude-code-setup) passes 70 of 70 hook behavior tests |
+| Machine learning | Supervised classification and computer vision, with time-ordered validation, class imbalance handling, PR-AUC with bootstrap intervals, label-shuffle tests, and honest reporting when a model is weak | [secom-spc](https://github.com/ragonxdragon/secom-spc); computer vision model trained on 6,761 images across five versions ([case study](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html)) |
+| Data science and statistics | Python and R with pandas, NumPy, SciPy, statsmodels, scikit-learn, and Jupyter; SPC (I-MR, Nelson rules, EWMA, CUSUM), hypothesis testing, DOE, and Lean Six Sigma | [secom-spc](https://github.com/ragonxdragon/secom-spc), [twinflow](https://github.com/ragonxdragon/twinflow) |
+| Industrial data engineering | MQTT, Sparkplug B, ISA-95 and the unified namespace, Purdue OT/IT segmentation, TimescaleDB, and pipelines that handle late, duplicate, and out-of-order data | [sparkplug-pipeline](https://github.com/ragonxdragon/sparkplug-pipeline) at a median of 4,205 messages/s; [spbconform](https://github.com/ragonxdragon/spbconform) covers all 299 testable Sparkplug B assertions |
+| Embedded and connectivity | C and C++ on ESP32 with FreeRTOS and PlatformIO, mbedTLS, LTE modems, Azure IoT Hub device twins, OTA updates, and firmware that recovers on its own | Production gateway firmware (client work); [recovery ladder](https://gist.github.com/ragonxdragon/40e022699158dc6cc4e20941b1def484) and [backoff](https://gist.github.com/ragonxdragon/dc041808503e7cbfaa6d99bd95b8b2a3) samples; [sim7600-emulator](https://github.com/ragonxdragon/sim7600-emulator) |
+| Performance engineering | Measure-first optimization: profile, delete before tuning, and record every before and after | 73.91 ms to 0.291 ms in [twinflow](https://github.com/ragonxdragon/twinflow); 26.4 ms to 1.25 ms on a radar signal-processing step; a 813.2 KB to 672.0 KB startup bundle; [performance-ladder-review](https://github.com/ragonxdragon/performance-ladder-review) |
+| Mobile and edge devices | React Native and TypeScript, Bluetooth LE GATT with HMAC-SHA256 challenge pairing, React kiosk UI, embedded Linux, and Flask APIs | [Radar sensor case study](https://ragonxdragon.github.io/case-studies/radar-companion.html) |
+| Engineering quality | Tests first, libFuzzer, CI gates, conventional commits, copyleft license gates, and clean-room implementations | [git-quality-gates](https://github.com/ragonxdragon/git-quality-gates); clean-room [spbconform](https://github.com/ragonxdragon/spbconform) |
+| Product and delivery | PRDs, roadmaps with evidence gates, ADRs, FMEA, release plans with QA gates, and root-cause analysis | [twinflow PRD](https://github.com/ragonxdragon/twinflow/blob/main/docs/prd/e1-hosted-replay-demo.md); [engineering-templates](https://github.com/ragonxdragon/engineering-templates); [release case study](https://ragonxdragon.github.io/case-studies/release-structure.html) |
+
+Languages: C, C++, Python, R, TypeScript, PowerShell.
