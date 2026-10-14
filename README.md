@@ -8,7 +8,7 @@ I build connected devices and the systems behind them: ESP32 firmware that keeps
 Most of my production work is client firmware in private repositories. The public projects below show how I work.
 
 **Available for contract work and full-time roles** in embedded, IoT, and industrial data.<br>
-[Email](mailto:johnragonhall@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/johnragonhall) &nbsp;·&nbsp; United States
+[Portfolio and case studies](https://johnragonhall.github.io) &nbsp;·&nbsp; [Email](mailto:johnragonhall@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/johnragonhall) &nbsp;·&nbsp; United States
 
 ## Selected work
 
@@ -23,6 +23,20 @@ A digital twin of a warehouse operation. A discrete-event model of receiving and
 The full Eclipse Sparkplug B v3.0.0 assertion table with a runner that checks an edge node against it. It carries all 299 testable assertions, executable checks for the 143 an in-process harness can observe, and a recorded reason for each one it cannot. Written clean-room, with zero dependencies, under MIT.
 
 `Python` `Sparkplug B` `MQTT` `conformance testing`
+
+### [secom-spc](https://github.com/johnragonhall/secom-spc)
+
+Statistical process control on the UCI SECOM semiconductor dataset: I-MR charts with Nelson rules, EWMA and CUSUM, an autocorrelation check that decides whether a chart can be trusted, and a fail-prediction study on a time-ordered split that reports honestly when the data does not support a model.
+
+`Python` `SPC` `scikit-learn` `Jupyter`
+
+### Code samples
+
+[Recovery ladder](https://gist.github.com/johnragonhall/40e022699158dc6cc4e20941b1def484) (C++17, boot-loop detection, no heap) &nbsp;·&nbsp; [Cellular backoff](https://gist.github.com/johnragonhall/dc041808503e7cbfaa6d99bd95b8b2a3) (C++17, full jitter and circuit breaker) &nbsp;·&nbsp; [Nelson rules checker](https://gist.github.com/johnragonhall/897b5ff8f95737c4feb72646c48edca1) (Python, stdlib only)
+
+### Case studies
+
+Three write-ups from client work, with names removed: [diagnosing a field upload failure](https://johnragonhall.github.io/case-studies/field-diagnostics.html), [a camera model that lifted order accuracy from 72.0% to 94.1%](https://johnragonhall.github.io/case-studies/vision-pick-audit.html), and [shipping firmware fixes to a fleet with no rollback](https://johnragonhall.github.io/case-studies/release-structure.html).
 
 ### Production firmware (private, client work)
 
