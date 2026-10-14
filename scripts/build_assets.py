@@ -8,6 +8,7 @@ sized to stay readable when a phone scales them to about 45%. The three project 
 at their intrinsic 268 px width, which fits three to a row on desktop and wraps on a phone.
 """
 
+import random
 from pathlib import Path
 
 ASSETS = Path(__file__).resolve().parent.parent / "assets"
@@ -68,37 +69,24 @@ ARROW_DEFS = """  <defs>
 
 # Banner ---------------------------------------------------------------------------------
 
-# Readings on the control chart, in sigma units from the center line. Illustrative, not data:
-# one reading lands above the upper limit, the rest stay inside it.
-TRACE = [0.15, -0.3, 0.05, 0.42, 0.2, -0.25, -0.5, -0.1, 0.3, 0.1, 0.55, 1.5, 0.7, 0.1, -0.35, 0.05, 0.4, -0.15, -0.45, 0.0, 0.25, -0.1]
-OUT_INDEX = 11
+# Readings on the control chart, in units of the limit distance from the center line (the
+# limits sit at +1 and -1). Illustrative, not data: a fixed seed gives the same irregular trace
+# on every build, every reading stays inside the limits, and one reading is set above the
+# upper limit so the chart has something to flag.
+TRACE_N, TRACE_SEED, TRACE_SD = 32, 20261013, 0.3
+OUT_INDEX, OUT_VALUE = 20, 1.42
+
+
+def _trace() -> list[float]:
+    rng = random.Random(TRACE_SEED)
+    values = [max(-0.88, min(0.88, rng.gauss(0.0, TRACE_SD))) for _ in range(TRACE_N)]
+    values[OUT_INDEX] = OUT_VALUE
+    return values
+
+
 LOOP_S = 9.0
 DRAW_START, DRAW_END = 0.04, 0.70  # fractions of the loop while the trace draws
 HOLD_END, FADE_END = 0.90, 0.98  # finished trace holds, then fades before the loop resets
-
-
-def _catmull_rom(points):
-    """Cubic Bezier segments through every point (uniform Catmull-Rom)."""
-    pts = [points[0]] + points + [points[-1]]
-    segs = []
-    for i in range(1, len(pts) - 2):
-        p0, p1, p2, p3 = pts[i - 1], pts[i], pts[i + 1], pts[i + 2]
-        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
-        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
-        segs.append((p1, c1, c2, p2))
-    return segs
-
-
-def _bezier_length(seg, steps=40):
-    p0, c1, c2, p3 = seg
-    total, prev = 0.0, p0
-    for k in range(1, steps + 1):
-        u = k / steps
-        a, b, c, d = (1 - u) ** 3, 3 * (1 - u) ** 2 * u, 3 * (1 - u) * u**2, u**3
-        pt = (a * p0[0] + b * c1[0] + c * c2[0] + d * p3[0], a * p0[1] + b * c1[1] + c * c2[1] + d * p3[1])
-        total += ((pt[0] - prev[0]) ** 2 + (pt[1] - prev[1]) ** 2) ** 0.5
-        prev = pt
-    return total
 
 
 def banner(t: dict) -> str:
@@ -107,15 +95,14 @@ def banner(t: dict) -> str:
     cl, sigma = 200, 58  # center line y, one limit's distance in px
     ucl, lcl = cl - sigma, cl + sigma
 
-    n = len(TRACE)
-    pts = [(cx0 + 8 + i * (cx1 - cx0 - 16) / (n - 1), cl - v * sigma) for i, v in enumerate(TRACE)]
-    segs = _catmull_rom(pts)
-    lengths = [_bezier_length(s) for s in segs]
+    trace = _trace()
+    n = len(trace)
+    pts = [(cx0 + 8 + i * (cx1 - cx0 - 16) / (n - 1), cl - v * sigma) for i, v in enumerate(trace)]
+    # Straight segments between readings, as an individuals chart draws them.
+    lengths = [((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5 for a, b in zip(pts, pts[1:])]
     total = sum(lengths)
     reach = [sum(lengths[:i]) / total for i in range(n)]  # fraction of the trace drawn at each point
-    d = f"M{pts[0][0]:.1f} {pts[0][1]:.1f} " + " ".join(
-        f"C{c1[0]:.1f} {c1[1]:.1f} {c2[0]:.1f} {c2[1]:.1f} {p[0]:.1f} {p[1]:.1f}" for _, c1, c2, p in segs
-    )
+    d = f"M{pts[0][0]:.1f} {pts[0][1]:.1f} " + " ".join(f"L{x:.1f} {y:.1f}" for x, y in pts[1:])
 
     def at(frac):  # percent of the loop when the pen reaches a fraction of the trace
         return 100 * (DRAW_START + (DRAW_END - DRAW_START) * frac)
@@ -133,7 +120,7 @@ def banner(t: dict) -> str:
       {fade:.1f}%, 100% {{ stroke-dashoffset: 0; opacity: 0; }}
     }}
     .pt {{ transform-box: fill-box; transform-origin: center; }}
-    .ring, .pulse {{ transform-box: fill-box; transform-origin: center; }}"""
+    .flag, .pulse {{ transform-box: fill-box; transform-origin: center; }}"""
     ]
     dots = []
     for i, (x, y) in enumerate(pts):
@@ -149,7 +136,7 @@ def banner(t: dict) -> str:
       {fade:.1f}%, 100% {{ opacity: 0; transform: translateY(0); }}
     }}"""
         )
-        dots.append(f'<circle class="pt p{i}" cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="{t["accent"]}"/>')
+        dots.append(f'<circle class="pt p{i}" cx="{x:.1f}" cy="{y:.1f}" r="2.3" fill="{t["accent"]}"/>')
 
     ox, oy = pts[OUT_INDEX]
     a = at(reach[OUT_INDEX])

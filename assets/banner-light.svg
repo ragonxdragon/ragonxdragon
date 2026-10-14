@@ -4,16 +4,16 @@
   <style>
     .sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif; }
     .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; }
-    .trace { stroke-dasharray: 607; stroke-dashoffset: 0; animation: draw 9.0s infinite; }
+    .trace { stroke-dasharray: 870; stroke-dashoffset: 0; animation: draw 9.0s infinite; }
     @keyframes draw {
-      0% { stroke-dashoffset: 607; opacity: 1; animation-timing-function: linear; }
-      4.0% { stroke-dashoffset: 607; animation-timing-function: linear; }
+      0% { stroke-dashoffset: 870; opacity: 1; animation-timing-function: linear; }
+      4.0% { stroke-dashoffset: 870; animation-timing-function: linear; }
       70.0% { stroke-dashoffset: 0; opacity: 1; }
       90.0% { stroke-dashoffset: 0; opacity: 1; animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { stroke-dashoffset: 0; opacity: 0; }
     }
     .pt { transform-box: fill-box; transform-origin: center; }
-    .ring, .pulse { transform-box: fill-box; transform-origin: center; }
+    .flag, .pulse { transform-box: fill-box; transform-origin: center; }
     .p0 { animation: p0 9.0s infinite; }
     @keyframes p0 {
       0%, 4.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
@@ -22,135 +22,195 @@
     }
     .p1 { animation: p1 9.0s infinite; }
     @keyframes p1 {
-      0%, 7.2% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      11.2%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 4.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      8.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p2 { animation: p2 9.0s infinite; }
     @keyframes p2 {
-      0%, 9.9% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      13.9%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 7.4% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      11.4%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p3 { animation: p3 9.0s infinite; }
     @keyframes p3 {
-      0%, 12.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      16.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 11.6% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      15.6%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p4 { animation: p4 9.0s infinite; }
     @keyframes p4 {
-      0%, 14.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      18.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 13.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      17.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p5 { animation: p5 9.0s infinite; }
     @keyframes p5 {
-      0%, 17.9% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      21.9%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 15.2% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      19.2%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p6 { animation: p6 9.0s infinite; }
     @keyframes p6 {
-      0%, 20.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      24.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 18.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      22.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p7 { animation: p7 9.0s infinite; }
     @keyframes p7 {
-      0%, 23.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      27.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 20.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      24.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p8 { animation: p8 9.0s infinite; }
     @keyframes p8 {
-      0%, 26.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      30.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 23.8% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      27.8%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p9 { animation: p9 9.0s infinite; }
     @keyframes p9 {
-      0%, 28.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      32.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 24.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      28.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p10 { animation: p10 9.0s infinite; }
     @keyframes p10 {
-      0%, 31.2% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      35.2%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 28.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      32.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p11 { animation: p11 9.0s infinite; }
+    @keyframes p11 {
+      0%, 31.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      35.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p12 { animation: p12 9.0s infinite; }
     @keyframes p12 {
-      0%, 42.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      46.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 34.3% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      38.3%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p13 { animation: p13 9.0s infinite; }
     @keyframes p13 {
-      0%, 46.8% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      50.8%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 35.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      39.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p14 { animation: p14 9.0s infinite; }
     @keyframes p14 {
-      0%, 50.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      54.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 36.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      40.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p15 { animation: p15 9.0s infinite; }
     @keyframes p15 {
-      0%, 53.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      57.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 38.3% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      42.3%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p16 { animation: p16 9.0s infinite; }
     @keyframes p16 {
-      0%, 55.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      59.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 41.6% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      45.6%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p17 { animation: p17 9.0s infinite; }
     @keyframes p17 {
-      0%, 59.5% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      63.5%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 42.3% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      46.3%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p18 { animation: p18 9.0s infinite; }
     @keyframes p18 {
-      0%, 61.9% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      65.9%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 43.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      47.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p19 { animation: p19 9.0s infinite; }
     @keyframes p19 {
-      0%, 65.2% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      69.2%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      98.0%, 100% { opacity: 0; transform: translateY(0); }
-    }
-    .p20 { animation: p20 9.0s infinite; }
-    @keyframes p20 {
-      0%, 67.3% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      71.3%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 43.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      47.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .p21 { animation: p21 9.0s infinite; }
     @keyframes p21 {
+      0%, 55.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      59.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p22 { animation: p22 9.0s infinite; }
+    @keyframes p22 {
+      0%, 56.3% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      60.3%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p23 { animation: p23 9.0s infinite; }
+    @keyframes p23 {
+      0%, 57.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      61.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p24 { animation: p24 9.0s infinite; }
+    @keyframes p24 {
+      0%, 58.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      62.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p25 { animation: p25 9.0s infinite; }
+    @keyframes p25 {
+      0%, 59.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      63.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p26 { animation: p26 9.0s infinite; }
+    @keyframes p26 {
+      0%, 59.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      63.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p27 { animation: p27 9.0s infinite; }
+    @keyframes p27 {
+      0%, 61.7% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      65.7%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p28 { animation: p28 9.0s infinite; }
+    @keyframes p28 {
+      0%, 64.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      68.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p29 { animation: p29 9.0s infinite; }
+    @keyframes p29 {
+      0%, 65.1% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      69.1%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p30 { animation: p30 9.0s infinite; }
+    @keyframes p30 {
+      0%, 66.4% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      70.4%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      98.0%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    .p31 { animation: p31 9.0s infinite; }
+    @keyframes p31 {
       0%, 70.0% { opacity: 0; transform: translateY(-5px); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       74.0%, 90.0% { opacity: 1; transform: translateY(0); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: translateY(0); }
     }
     .flag { animation: flag 9.0s infinite; }
     @keyframes flag {
-      0%, 37.4% { opacity: 0; transform: scale(0.4); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
-      42.4%, 90.0% { opacity: 1; transform: scale(1); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      0%, 49.0% { opacity: 0; transform: scale(0.4); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
+      54.0%, 90.0% { opacity: 1; transform: scale(1); animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1); }
       98.0%, 100% { opacity: 0; transform: scale(1); }
     }
     .pulse { opacity: 0; animation: pulse 9.0s infinite; }
     @keyframes pulse {
-      0%, 38.4% { opacity: 0; transform: scale(1); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
-      39.4% { opacity: 0.9; transform: scale(1); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
-      53.4%, 100% { opacity: 0; transform: scale(2.6); }
+      0%, 50.0% { opacity: 0; transform: scale(1); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+      51.0% { opacity: 0.9; transform: scale(1); animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1); }
+      65.0%, 100% { opacity: 0; transform: scale(2.6); }
     }
     @media (prefers-reduced-motion: reduce) {
       .trace, .pt, .flag { animation: none; }
@@ -174,32 +234,42 @@
   <line x1="472" y1="200" x2="756" y2="200" stroke="#d0d7de" stroke-width="1"/>
   <line x1="472" y1="258" x2="756" y2="258" stroke="#d0d7de" stroke-width="1.25" stroke-dasharray="5 5"/>
 
-  <path class="trace" d="M480.0 191.3 C482.1 195.7 488.5 216.4 492.8 217.4 C497.0 218.4 501.3 204.1 505.5 197.1 C509.8 190.1 514.0 177.1 518.3 175.6 C522.5 174.2 526.8 181.9 531.0 188.4 C535.3 194.9 539.6 207.7 543.8 214.5 C548.1 221.3 552.3 230.4 556.6 229.0 C560.8 227.6 565.1 213.5 569.3 205.8 C573.6 198.1 577.8 184.5 582.1 182.6 C586.3 180.7 590.6 196.6 594.9 194.2 C599.1 191.8 603.4 181.6 607.6 168.1 C611.9 154.6 616.1 114.5 620.4 113.0 C624.6 111.5 628.9 145.9 633.1 159.4 C637.4 172.9 641.7 184.0 645.9 194.2 C650.2 204.3 654.4 219.8 658.7 220.3 C662.9 220.8 667.2 204.3 671.4 197.1 C675.7 189.8 679.9 174.9 684.2 176.8 C688.4 178.7 692.7 200.5 697.0 208.7 C701.2 216.9 705.5 227.5 709.7 226.1 C714.0 224.7 718.2 206.8 722.5 200.0 C726.7 193.2 731.0 184.5 735.2 185.5 C739.5 186.5 745.9 202.4 748.0 205.8" fill="none" stroke="#0f766e" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle class="pt p0" cx="480.0" cy="191.3" r="2.6" fill="#0f766e"/>
-  <circle class="pt p1" cx="492.8" cy="217.4" r="2.6" fill="#0f766e"/>
-  <circle class="pt p2" cx="505.5" cy="197.1" r="2.6" fill="#0f766e"/>
-  <circle class="pt p3" cx="518.3" cy="175.6" r="2.6" fill="#0f766e"/>
-  <circle class="pt p4" cx="531.0" cy="188.4" r="2.6" fill="#0f766e"/>
-  <circle class="pt p5" cx="543.8" cy="214.5" r="2.6" fill="#0f766e"/>
-  <circle class="pt p6" cx="556.6" cy="229.0" r="2.6" fill="#0f766e"/>
-  <circle class="pt p7" cx="569.3" cy="205.8" r="2.6" fill="#0f766e"/>
-  <circle class="pt p8" cx="582.1" cy="182.6" r="2.6" fill="#0f766e"/>
-  <circle class="pt p9" cx="594.9" cy="194.2" r="2.6" fill="#0f766e"/>
-  <circle class="pt p10" cx="607.6" cy="168.1" r="2.6" fill="#0f766e"/>
-  <circle class="pt p12" cx="633.1" cy="159.4" r="2.6" fill="#0f766e"/>
-  <circle class="pt p13" cx="645.9" cy="194.2" r="2.6" fill="#0f766e"/>
-  <circle class="pt p14" cx="658.7" cy="220.3" r="2.6" fill="#0f766e"/>
-  <circle class="pt p15" cx="671.4" cy="197.1" r="2.6" fill="#0f766e"/>
-  <circle class="pt p16" cx="684.2" cy="176.8" r="2.6" fill="#0f766e"/>
-  <circle class="pt p17" cx="697.0" cy="208.7" r="2.6" fill="#0f766e"/>
-  <circle class="pt p18" cx="709.7" cy="226.1" r="2.6" fill="#0f766e"/>
-  <circle class="pt p19" cx="722.5" cy="200.0" r="2.6" fill="#0f766e"/>
-  <circle class="pt p20" cx="735.2" cy="185.5" r="2.6" fill="#0f766e"/>
-  <circle class="pt p21" cx="748.0" cy="205.8" r="2.6" fill="#0f766e"/>
+  <path class="trace" d="M480.0 208.8 L488.6 207.3 L497.3 172.2 L505.9 226.4 L514.6 209.3 L523.2 182.6 L531.9 220.8 L540.5 187.7 L549.2 227.1 L557.8 218.2 L566.5 175.4 L575.1 222.5 L583.7 189.0 L592.4 194.5 L601.0 204.7 L609.7 232.1 L618.3 189.5 L627.0 191.9 L635.6 186.8 L644.3 186.2 L652.9 117.6 L661.5 205.3 L670.2 205.8 L678.8 211.0 L687.5 220.5 L696.1 212.2 L704.8 208.3 L713.4 183.9 L722.1 213.1 L730.7 224.8 L739.4 239.3 L748.0 192.5" fill="none" stroke="#0f766e" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle class="pt p0" cx="480.0" cy="208.8" r="2.3" fill="#0f766e"/>
+  <circle class="pt p1" cx="488.6" cy="207.3" r="2.3" fill="#0f766e"/>
+  <circle class="pt p2" cx="497.3" cy="172.2" r="2.3" fill="#0f766e"/>
+  <circle class="pt p3" cx="505.9" cy="226.4" r="2.3" fill="#0f766e"/>
+  <circle class="pt p4" cx="514.6" cy="209.3" r="2.3" fill="#0f766e"/>
+  <circle class="pt p5" cx="523.2" cy="182.6" r="2.3" fill="#0f766e"/>
+  <circle class="pt p6" cx="531.9" cy="220.8" r="2.3" fill="#0f766e"/>
+  <circle class="pt p7" cx="540.5" cy="187.7" r="2.3" fill="#0f766e"/>
+  <circle class="pt p8" cx="549.2" cy="227.1" r="2.3" fill="#0f766e"/>
+  <circle class="pt p9" cx="557.8" cy="218.2" r="2.3" fill="#0f766e"/>
+  <circle class="pt p10" cx="566.5" cy="175.4" r="2.3" fill="#0f766e"/>
+  <circle class="pt p11" cx="575.1" cy="222.5" r="2.3" fill="#0f766e"/>
+  <circle class="pt p12" cx="583.7" cy="189.0" r="2.3" fill="#0f766e"/>
+  <circle class="pt p13" cx="592.4" cy="194.5" r="2.3" fill="#0f766e"/>
+  <circle class="pt p14" cx="601.0" cy="204.7" r="2.3" fill="#0f766e"/>
+  <circle class="pt p15" cx="609.7" cy="232.1" r="2.3" fill="#0f766e"/>
+  <circle class="pt p16" cx="618.3" cy="189.5" r="2.3" fill="#0f766e"/>
+  <circle class="pt p17" cx="627.0" cy="191.9" r="2.3" fill="#0f766e"/>
+  <circle class="pt p18" cx="635.6" cy="186.8" r="2.3" fill="#0f766e"/>
+  <circle class="pt p19" cx="644.3" cy="186.2" r="2.3" fill="#0f766e"/>
+  <circle class="pt p21" cx="661.5" cy="205.3" r="2.3" fill="#0f766e"/>
+  <circle class="pt p22" cx="670.2" cy="205.8" r="2.3" fill="#0f766e"/>
+  <circle class="pt p23" cx="678.8" cy="211.0" r="2.3" fill="#0f766e"/>
+  <circle class="pt p24" cx="687.5" cy="220.5" r="2.3" fill="#0f766e"/>
+  <circle class="pt p25" cx="696.1" cy="212.2" r="2.3" fill="#0f766e"/>
+  <circle class="pt p26" cx="704.8" cy="208.3" r="2.3" fill="#0f766e"/>
+  <circle class="pt p27" cx="713.4" cy="183.9" r="2.3" fill="#0f766e"/>
+  <circle class="pt p28" cx="722.1" cy="213.1" r="2.3" fill="#0f766e"/>
+  <circle class="pt p29" cx="730.7" cy="224.8" r="2.3" fill="#0f766e"/>
+  <circle class="pt p30" cx="739.4" cy="239.3" r="2.3" fill="#0f766e"/>
+  <circle class="pt p31" cx="748.0" cy="192.5" r="2.3" fill="#0f766e"/>
 
-  <circle class="pulse" cx="620.4" cy="113.0" r="9" fill="none" stroke="#0f766e" stroke-width="1.5"/>
+  <circle class="pulse" cx="652.9" cy="117.6" r="9" fill="none" stroke="#0f766e" stroke-width="1.5"/>
   <g class="flag">
-    <circle cx="620.4" cy="113.0" r="9" fill="none" stroke="#0f766e" stroke-width="2"/>
-    <circle cx="620.4" cy="113.0" r="4" fill="#0f766e"/>
+    <circle cx="652.9" cy="117.6" r="9" fill="none" stroke="#0f766e" stroke-width="2"/>
+    <circle cx="652.9" cy="117.6" r="4" fill="#0f766e"/>
   </g>
 </svg>
