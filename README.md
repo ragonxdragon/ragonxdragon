@@ -67,7 +67,7 @@ Case studies from client work, with names removed:
 - [Gateway or device: placing an upload failure](https://ragonxdragon.github.io/case-studies/field-diagnostics.html)
 - [Checking pick accuracy with a camera model](https://ragonxdragon.github.io/case-studies/vision-pick-audit.html)
 - [Shipping firmware fixes to a fleet with no rollback](https://ragonxdragon.github.io/case-studies/release-structure.html)
-<!-- radar-work -->
+- [A phone app and a TV display for an open-source radar sensor](https://ragonxdragon.github.io/case-studies/radar-companion.html)
 
 ## Engineering tools
 
@@ -95,6 +95,5 @@ I write the test first, and every bug fix ships with a regression test. A number
 | LLM agents | Agent tooling and evaluation design, including grounding and abstention metrics ([twinflow](https://github.com/ragonxdragon/twinflow), [claude-code-setup](https://github.com/ragonxdragon/claude-code-setup), [performance-ladder-review](https://github.com/ragonxdragon/performance-ladder-review)) |
 | Statistics and process | Statistical process control, hypothesis testing, DOE, Lean Six Sigma ([secom-spc](https://github.com/ragonxdragon/secom-spc), [twinflow](https://github.com/ragonxdragon/twinflow)) |
 | Quality | Unit tests, libFuzzer, CI gates on GitHub Actions |
+| Mobile and connected devices | React Native and TypeScript, Bluetooth LE GATT with HMAC-SHA256 challenge pairing, React kiosk UI, embedded Linux with systemd and HDMI-CEC, Flask APIs ([case study](https://ragonxdragon.github.io/case-studies/radar-companion.html)) |
 | Other languages | TypeScript, PowerShell |
-
-<!-- radar-work -->
